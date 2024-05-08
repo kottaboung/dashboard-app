@@ -1,0 +1,31 @@
+.login-form {
+  position: relative;
+}
+
+.form-group {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+input {
+  width: 100%;
+  padding: 0.5rem;
+  border-bottom: 1px solid #ccc;
+  background-color: none;
+  border-radius: 5px;
+}
+
+label {
+  position: absolute;
+  left: 0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #777;
+  transition: top 0.3s ease, font-size 0.3s ease;
+}
+
+input:focus + label, input:not(:placeholder-shown) + label {
+  top: 0;
+  font-size: 0.8rem;
+  color: #333;
+}

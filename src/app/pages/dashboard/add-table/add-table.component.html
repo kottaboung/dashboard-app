@@ -1,0 +1,44 @@
+
+
+
+
+<div class="m-6">
+    <div class="flex justify-between">
+        <h1 class="py-2">Add New Employee</h1>
+        <button mat-button (click)="closeModal()" class="bg-red-500 hover:bg-red-600 rounded-xl outline-none text-white p-2">Close</button>
+    </div>
+    <form class="mt-2 flex flex-wrap gap-12">
+        <span class="flex flex-col mb-2">Name
+            <input required [(ngModel)]="name" name="name" class="bg-gray-100 w-40 text-sm text-gray-700 rounded-xl outline-none p-2" type="text" placeholder="Name">
+        </span>
+        <span class="flex flex-col mb-2">Lastname
+            <input required [(ngModel)]="lastname" name="lastname" class="bg-gray-100 w-40 text-sm text-gray-700 rounded-xl outline-none p-2" type="text" placeholder="Lastname">
+        </span>
+        <span class="flex flex-col mb-2">Nickname
+            <input required [(ngModel)]="nickname" name="nickname" class="bg-gray-100 w-40 text-sm text-gray-700 rounded-xl outline-none p-2" type="text" placeholder="Naickname">
+        </span>
+        <span class="flex flex-col mb-2">Gender
+            <div class="flex gap-2 ">
+                <input required [(ngModel)]="gender" type="radio" id="male" name="gender" value="male" checked />
+                <label for="male">Male</label>
+                <input required [(ngModel)]="gender" type="radio" id="female" name="gender" value="female" checked />
+                <label for="female">Female</label>
+            </div>
+        </span>
+        <div class="mb-2 flex gap-2 w-72">
+            <span class=" flex-col flex gap-2">Age
+                <input class="outline-none" type="date" name="dateOfBirth" required [(ngModel)]="dateOfBirth" (change)="calculateAge()">
+                <p class="py-2 bg-gray-100 rounded-xl px-2 w-12"> {{ age }} </p>
+            </span>
+        </div>
+        
+        <div class="flex flex-col mb-2">
+            <span>Skills</span>
+            <textarea required [(ngModel)]="skills" name="skills" rows="4" cols="50" type="text"  class=" overflow-auto bg-gray-100 p-2 outline-none text-gray-700 text-sm rounded-xl"></textarea>
+        </div>
+        <div class="flex justify-end">
+            <button (click)="saveModal()" class="bg-green-500  hover:bg-green-600 rounded-xl outline-none text-white p-2">Save</button>
+        </div>
+    </form>
+</div>
+

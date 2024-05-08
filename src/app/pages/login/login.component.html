@@ -1,0 +1,24 @@
+<div class="flex justify-center " (ngSubmit)="login()">
+    <div class="mt-52 shadow px-12 py-6 rounded-md">
+        <h1 class="mb-8 text-xl font-bold">Login</h1>
+        <form class="login-form flex flex-col gap-2 mb-2">
+            <div class="form-group relative">
+                <input [(ngModel)]="username" name="username" id="username" 
+                class="form-control bg-none border-b outline-none focus:bg-none p-2 bg-transparent text-sm" placeholder=" " type="text">
+                <label for="username">Username</label>
+              </div>
+              <div class="form-group relative">
+                <input [(ngModel)]="password" name="password" id="password" 
+                class="form-control bg-none border-b outline-none focus:bg-none p-2 bg-transparent text-sm" placeholder=" " type="password">
+                <label for="password">Password</label>
+              </div>
+            
+           
+        </form> 
+        <div class="flex justify-center">
+            <button type="submit" class="bg-blue-400 font-bold text-sm outline-none hover:bg-blue-500 rounded-full px-2 py-1 text-white ">Login</button>
+        </div>
+    </div>
+</div>
+
+
