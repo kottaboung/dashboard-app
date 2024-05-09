@@ -22,24 +22,7 @@
               </tr>
             </thead>
             <tbody class="bg-white ">
-              <tr  [class.bg-green-200]="isActive">
-                <th class="text-center text-gray-600 w-8 p-2 text-sm">1</th>
-                <th class="text-start text-gray-600 w-16 p-2 text-sm">Kottaboung</th>
-                <th class="text-start text-gray-600 w-16 p-2 text-sm">Nanvong</th>
-                <th class="text-start text-gray-600 w-16 p-2 text-sm">Main</th>
-                <th class="text-center text-gray-600 p-2 w-8 text-sm">male</th>
-                <th class="text-center text-gray-600 p-2 w-8 text-sm">21</th>
-                <th class="text-start text-gray-600 w-28 p-2 text-sm overflow-x-auto max-w-32">Angular</th>
-                <th class="flex gap-4 justify-end w-auto p-2">
-                  <p>
-                    <mat-slide-toggle class="w-24" [checked]="isActive" (change)="toggle1()">
-                      {{ isActive ? 'Active' : 'Inactive' }}
-                    </mat-slide-toggle>
-                  </p>
-                    <button amt-button (click)="isEdit(originalData)" class="py-1 px-2 text-white rounded-lg border-black hover:bg-blue-600 bg-blue-500">edit</button>
-                    <button class="py-1 px-2 text-white rounded-lg bg-red-500 hover:bg-red-600 border-black">delete</button>
-                </th>
-              </tr>
+              
               <tr *ngFor="let record of tableData; let i = index" [class.bg-green-200]="isRowActive(i)">
                 <th class="text-center text-gray-600 w-8 p-2 text-sm"> {{record.id}}</th>
                 <th class="text-start text-gray-600 w-16 p-2 text-sm"> {{record.name}}</th>
@@ -55,7 +38,7 @@
                     </mat-slide-toggle>                    
                     </p>
                     <button (click)="isEdit(record)" class="py-1 px-2 text-white rounded-lg border-black hover:bg-blue-600 bg-blue-500">edit</button>
-                    <button (click)="delete(record)" class="py-1 px-2 text-white rounded-lg bg-red-500 hover:bg-red-600 border-black">delete</button>
+                    <button *ngIf="tableData.length > 1" (click)="delete(record)" class="py-1 px-2 text-white rounded-lg bg-red-500 hover:bg-red-600 border-black">delete</button>
                 </th>
               </tr>
             </tbody>

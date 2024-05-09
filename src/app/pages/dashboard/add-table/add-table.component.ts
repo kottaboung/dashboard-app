@@ -66,7 +66,7 @@ export class AddTableComponent {
   nickname : string = '';
   gender : string = '';
   skills : string = '';
-  lastUsedId: number = 1;
+  lastUsedId: number = 0;
 
   addRecord(name: string, lastname: string, nickname: string ,gender : string, skills: string, age: number, dateOfBirth: string,) {
     const record = { name , lastname , nickname, gender , skills , age , dateOfBirth};

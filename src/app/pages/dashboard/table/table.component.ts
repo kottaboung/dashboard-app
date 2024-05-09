@@ -84,9 +84,9 @@ export class TableComponent implements OnInit {
    
 
     const dialogRef = this.dialog.open(EditTableComponent, {
-      width: '500px',
+      width: '1000px',
       height: 'auto',
-      position: { left: '30%', top: '5%' },
+      position: { left: '15%', top: '5%' },
       data: { 
         originalData: originalData,
         editedData: { ...originalData } 
@@ -108,9 +108,9 @@ export class TableComponent implements OnInit {
   
   isOpen() {
     const dialogRef = this.dialog.open(AddTableComponent, {
-      width: '500px',
+      width: '1000px',
       height: 'auto',
-      position: { left: '30%', top: '5%' },
+      position: { left: '15%', top: '5%' },
       data: { tableData: this.tableData }
     });
 
@@ -127,8 +127,11 @@ export class TableComponent implements OnInit {
     const index = this.tableData.findIndex(item => item === record)
     if(index !== -1) {
       this.tableData.splice(index,1);
-      localStorage.setItem('tableData', JSON.stringify(this.tableData));
+      this.tableData.forEach((item, idx) => {
+        item.id = idx + 1;
+    });
     }
+    localStorage.setItem('tableData', JSON.stringify(this.tableData));
   }
 
   private saveData(): void {

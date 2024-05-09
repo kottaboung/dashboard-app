@@ -33,7 +33,7 @@
             <span>Skills</span>
             <div class="flex">
                 <input type="text" [(ngModel)]="newSkill" name="newSkill" class="overflow-auto bg-gray-100 p-2 outline-none text-gray-700 text-sm rounded-xl" placeholder="Enter a skill">
-                <button (click)="addSkill()" type="button" class="ml-2 bg-blue-500 text-white px-4 py-2 rounded">Add skill</button>
+                <button (click)="addSkill()" type="button" class="ml-2 bg-blue-500 outline-none hover:bg-blue-600 text-white px-4 py-2 rounded-full">Add skill</button>
             </div>
             <div class="flex flex-wrap mt-2">
                 <span *ngFor="let skill of skillsList" class="bg-gray-200 px-2 py-1 rounded-lg mr-2 mb-2">{{ skill }} 
