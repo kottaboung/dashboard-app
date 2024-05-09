@@ -14,7 +14,7 @@ export class EditTableComponent {
   lastname : string = '';
   nickname : string = '';
   gender : string = '';
-  skills : string = '';
+  skillsList: string[] = [];
   dateOfBirth!: string;
   age: number | undefined;
 
@@ -24,6 +24,7 @@ export class EditTableComponent {
   ) {
     this.originalData = data.originalData;
     this.editedData = { ...data.editedData };
+    this.skillsList = this.originalData.skillsList ? [...this.originalData.skillsList] : [];
     this.calculateAge();
     
   }
@@ -56,10 +57,27 @@ export class EditTableComponent {
 
   saveModal(): void {
     
-    const editedRecord = { ...this.editedData, age: this.age };
+    const editedRecord = { ...this.editedData, age: this.age , skillsList: this.skillsList};
     console.log('Saved data:', this.editedData);
     this.dialogRef.close(editedRecord);
        
   }
+  
+  newSkill: string = '';
+
+  addSkill() {
+    if (this.newSkill.trim() !== '') {
+      this.skillsList.push(this.newSkill.trim());
+      this.newSkill = ''; 
+    }
+  }
+
+  deleteSkill(skill: string) {
+    const index = this.skillsList.indexOf(skill);
+    if (index !== -1) {
+      this.skillsList.splice(index, 1);
+    }
+  }  
+  
 
 }

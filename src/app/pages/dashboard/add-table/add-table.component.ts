@@ -10,36 +10,9 @@ import { Subject } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.Default
 })
 export class AddTableComponent {
-  private recordSubject = new Subject<any>();
-  recordAdded$ = this.recordSubject.asObservable();
-  tableData: any[] = [];
-
-  name:string ='';
-  lastname : string = '';
-  nickname : string = '';
-  gender : string = '';
-  skills : string = '';
-  lastUsedId: number = 1;
-
-  addRecord(name: string, lastname: string, nickname: string ,gender : string, skills: string, age: number, dateOfBirth: string,) {
-    const record = { name , lastname , nickname, gender , skills , age , dateOfBirth};
-    console.log('Record to be emitted:', record);
-    this.recordSubject.next(record);
-  }
 
   dateOfBirth!: string;
   age!: number;
-
-  constructor(
-    public dialogRef: MatDialogRef<AddTableComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any
-  ) {
-    this.tableData = data.tableData;
-    if (this.tableData.length > 0) {
-      this.lastUsedId = this.tableData[this.tableData.length - 1].id;
-    }
-    console.log(this.tableData);
-  }
 
   closeModal(): void {
     this.dialogRef.close();
@@ -65,20 +38,66 @@ export class AddTableComponent {
     }
     this.age = age;
   }
+
+  newSkill: string = '';
+  skillsList: string[] = [];
+  selectedSkillToDelete: string = '';
+
+  addSkill() {
+    if (this.newSkill.trim() !== '') {
+      this.skillsList.push(this.newSkill.trim());
+      this.newSkill = ''; 
+    }
+  }
+
+  deleteSkill(skill: string) {
+    const index = this.skillsList.indexOf(skill);
+    if (index !== -1) {
+      this.skillsList.splice(index, 1);
+    }
+  }
+
+  private recordSubject = new Subject<any>();
+  recordAdded$ = this.recordSubject.asObservable();
+  tableData: any[] = [];
+
+  name:string ='';
+  lastname : string = '';
+  nickname : string = '';
+  gender : string = '';
+  skills : string = '';
+  lastUsedId: number = 1;
+
+  addRecord(name: string, lastname: string, nickname: string ,gender : string, skills: string, age: number, dateOfBirth: string,) {
+    const record = { name , lastname , nickname, gender , skills , age , dateOfBirth};
+    console.log('Record to be emitted:', record);
+    this.recordSubject.next(record);
+  }
+
+  constructor(
+    public dialogRef: MatDialogRef<AddTableComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any
+  ) {
+    this.tableData = data.tableData;
+    if (this.tableData.length > 0) {
+      this.lastUsedId = this.tableData[this.tableData.length - 1].id;
+    }
+    console.log(this.tableData);
+  }
   
   saveModal() {
-    if (!this.name || !this.lastname || !this.nickname || !this.gender || !this.skills || !this.age || !this.dateOfBirth) {
-      alert('Please fill out all required fields.')
-      console.log('Please fill out all required fields.');
-      return;
-    }
+      if (!this.name || !this.lastname || !this.nickname || !this.gender || !this.skillsList || !this.age || !this.dateOfBirth) {
+        alert('Please fill out all required fields.')
+        console.log('Please fill out all required fields.');
+        return;
+      }
     const newRecord = {
       id: this.lastUsedId + 1,
       name: this.name,
       lastname: this.lastname,
       nickname: this.nickname,
       gender: this.gender, 
-      skills: this.skills, 
+      skillsList: this.skillsList, 
       age: this.age,
       dateOfBirth: this.dateOfBirth,
     };

@@ -47,7 +47,7 @@
                 <th class="text-start text-gray-600 w-16 p-2 text-sm"> {{record.nickname}} </th>
                 <th class="text-center text-gray-600 p-2 w-8 text-sm"> {{record.gender}} </th>
                 <th class="text-center text-gray-600 p-2 w-8 text-sm"> {{record.age}} </th>
-                <th class="text-start text-gray-600 w-28 p-2 text-sm overflow-auto max-w-32"> {{record.skills}} </th>
+                <th class="text-start text-gray-600 w-28 p-2 text-sm overflow-auto max-w-32"> {{record.skillsList}} </th>
                 <th class="flex gap-4 justify-end w-auto p-2">
                   <p>
                     <mat-slide-toggle class="w-24" [checked]="isRowActive(i)" (change)="toggle(i, $event.checked)">
