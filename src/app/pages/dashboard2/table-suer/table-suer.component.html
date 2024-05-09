@@ -21,18 +21,7 @@
               </tr>
             </thead>
             <tbody class="bg-white ">
-              <tr  [class.bg-green-200]="isActive">
-                <th class="text-center text-gray-600 w-8 p-2 text-sm">1</th>
-                <th class="text-start text-gray-600 w-16 p-2 text-sm">Kottaboung</th>
-                <th class="text-start text-gray-600 w-16 p-2 text-sm">Nanvong</th>
-                <th class="text-start text-gray-600 w-16 p-2 text-sm">Main</th>
-                <th class="text-center text-gray-600 p-2 w-8 text-sm">male</th>
-                <th class="text-center text-gray-600 p-2 w-8 text-sm">21</th>
-                <th class="text-start text-gray-600 w-28 p-2 text-sm overflow-x-auto max-w-32">Angular</th>
-                <th class="flex justify-around p-2">
-                   <p class="text-center text-gray-600 text-sm"> {{isActive ? 'Acitive' : 'Inactive'}} </p>
-                </th>
-              </tr>
+              
               <tr *ngFor="let record of tableData; let i = index" [class.bg-green-200]="activeRows.includes(i)">
                 <th class="text-center text-gray-600 w-8 p-2 text-sm">{{ record.id }}</th>
                 <th class="text-start text-gray-600 w-16 p-2 text-sm">{{ record.name }}</th>
