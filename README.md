@@ -1,6 +1,7 @@
 # TableTest
 
 [![TableTest](https://github.com/kottaboung/dashboard-app/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/kottaboung/dashboard-app/actions/workflows/pages/pages-build-deployment)
+[![TableTest](https://github.com/kottaboung/dashboard-app/deployments/Production/badge.svg)](https://github.com/kottaboung/dashboard-app/deployments/Production)
 
 making a table to display data and and swtich column 
 
